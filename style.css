@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+h1 {
+    margin: 10px 20px;
+    color: rgb(67, 67, 215);
+    font-weight: bold;
+}
+
+h3 {
+    color: rgb(255, 175, 78);
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid;
+    margin-top: 15px;
+    padding: 20px 15px;
+    min-height: 34rem;
+    border-radius: 4px;
+}
+
+.display_image {
+    width: 100%;
+    height: 75%;
+    background: url("./test2.avif");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.pic {
+    width: 65%;
+    margin-right: 50px;
+    border-right: 1px solid rgb(42, 28, 56);
+}
+
+.pic input {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input::file-selector-button {
+    font-weight: bold;
+    color: dodgerblue;
+    padding: 0.5rem;
+    margin-right: 10px;
+    border: thin solid grey;
+    border-radius: 3px;
+}
+
+.pic h3 {
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.pic input {
+    margin: 10px 0px;
+    text-align: center;
+}
+
+.controls {
+    width: 32%;
+}
+
+.controls input {
+    width: 100%;
+}
+
+.controls h3 {
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.controls input {
+    margin: 5px 0px;
+}
+
+@media only screen and (max-width: 1150px) and (min-width: 600px) {
+    .pic {
+        width: 96%;
+        border: none;
+        margin: auto;
+    }
+
+    .box {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+    }
+    .display_image {
+        width: 100%;
+        height: 300px;
+    }
+    .controls {
+        width: 80%;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+    .pic {
+        width: 96vw;
+        border: none;
+        margin: auto;
+        height: 400px;
+    }
+
+    .box {
+        flex-direction: column;
+        align-items: center;
+        width: 98%;
+        padding: 5px 4px;
+        margin-bottom: 5px;
+    }
+
+    .display_image {
+        width: 100%;
+        height: 250px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .controls {
+        width: 88vw;
+        margin-top: 10px;
+    }
+
+    .controls input {
+        font-size: 15px;
+    }
+
+    h3 {
+        width: 100%;
+        font-size: 25px;
+        padding: 5px 0px;
+    }
+
+    .pic input {
+        width: 100%;
+        font-size: 15px;
+    }
+}
