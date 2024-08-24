@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Image with Filters</title>
+</head>
+<body>
+    <img id="myImage" src="img.png" alt="Image" width="300">
+    <br>
+    <button onclick="applyFiltersAndDownload()">Apply Filters & Download</button>
+
+    <canvas id="myCanvas" style="display:none;"></canvas>
+
+    <script>
+        function applyFiltersAndDownload() {
+            const img = document.getElementById('myImage');
+            img.crossOrigin = "anonymous"; // This ensures CORS headers are checked
+            const canvas = document.getElementById('myCanvas');
+            const ctx = canvas.getContext('2d');
+
+            // Set canvas dimensions to match the image
+            canvas.width = img.width;
+            canvas.height = img.height;
+
+            // Apply CSS filters (example: grayscale and blur)
+            ctx.filter = 'grayscale(100%) blur(5px)';
+
+            // Draw the image onto the canvas with the applied filters
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            // Create a link element
+            const link = document.createElement('a');
+
+            // Set the download attribute with a filename
+            link.download = 'filtered-image.png';
+
+            // Convert canvas to Data URL and set as href attribute
+            link.href = canvas.toDataURL('image/png');
+
+            // Trigger the download
+            link.click();
+        }
+    </script>
+</body>
+</html>

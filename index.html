@@ -15,86 +15,66 @@
 
 
     <h1>ImageWiz</h1>
-    <div class="container box">
-        <div class=" pic">
+    <div class="box container">
+        <div class="pic">
             <h3>Selected Image</h3>
             <input type="file" id="image_input" accept="image/*">
-            <div class="display_image"></div>
+
+            <img class="display_image" src="./test2.avif">
+            <canvas id="myCanva" style="display: none"></canvas>
+
+            <div class="btns">
+                <button class="btn btn-primary " type="button" onclick="downloadBtn()">Download The Output</button>
+                <button class="btn btn-success" type="button" onclick="CopyButton()">Copy The Values</button>
+            </div>
         </div>
-        <div class="controls ">
+        <div class="controls">
             <h3>Controls</h3>
+
             <label>Hue-rotate</label>
-            <input type="range" min="0" max="360" value="0" data-filter="hue-rotate" onchange="applyFilter()"
-                data-scale="deg"><br>
+            <input type="range" min="0" max="360" value="0" step="10" data-filter="hue-rotate"
+                oninput="hueValue.innerText=this.value" onchange="applyFilter()" data-scale="deg">
+            <p id="hueValue">0</p> <br>
+
             <label>Saturate</label>
-            <input type="range" min="0" max="100" value="100" data-filter="saturate" onchange="applyFilter()"
-                data-scale="%"><br>
+            <input type="range" min="0" max="100" value="100" data-filter="saturate"
+                oninput="satValue.innerText=this.value" onchange="applyFilter()" data-scale="%">
+            <p id="satValue">100</p> <br>
+
             <label>Opacity</label>
-            <input type="range" min="50" max="100" value="100" data-filter="opacity" onchange="applyFilter()"
-                data-scale="%"><br>   
+            <input type="range" min="50" max="100" value="100" data-filter="opacity"
+                oninput="opValue.innerText=this.value" onchange="applyFilter()" data-scale="%">
+            <p id="opValue">100</p> <br>
+
             <label>Contrast</label>
-            <input type="range" min="0" max="200" value="100" data-filter="contrast" onchange="applyFilter()"
-                data-scale="%"><br>
+            <input type="range" min="0" max="200" value="100" data-filter="contrast"
+                oninput="conValue.innerText=this.value" onchange="applyFilter()" data-scale="%">
+            <p id="conValue">100</p> <br>
+
             <label>Grayscale</label>
-            <input type="range" min="0" max="100" value="0" data-filter="grayscale" onchange="applyFilter()"
-                data-scale="%"><br>
-            <label>Blur</label>
-            <input type="range" min="0" max="10" step="1" value="0" data-filter="blur" onChange="applyFilter()"
-                data-scale="px"><br>
+            <input type="range" min="0" max="100" value="0" data-filter="grayscale"
+                oninput="grayValue.innerText=this.value" onchange="applyFilter()" data-scale="%">
+            <p id="grayValue">0</p> <br>
+
+            <label>Blur</label><br>
+            <input type="range" min="0" max="100" step="10" value="0" data-filter="blur"
+                oninput="blurValue.innerText=this.value" onChange="applyFilter()" data-scale="px">
+            <p id="blurValue">0</p> <br>
+
             <label>Brigtness</label>
-            <input type="range" min="1" max="40" value="1" data-filter="brightness" onchange="applyFilter()"
-                data-scale=""><br>
-            
-            <label>Sepia</label>
-            <input type="range" min="0" max="100" value="0" data-filter="sepia" onchange="applyFilter()"
-                data-scale="%"><br>
+            <input type="range" min="1" max="40" value="1" data-filter="brightness"
+                oninput="briValue.innerText=this.value" onchange="applyFilter()" data-scale="">
+            <p id="briValue">1</p> <br>
+
+            <label>Sepia</label><br>
+            <input type="range" min="0" max="100" value="0" data-filter="sepia" oninput="sepValue.innerText=this.value"
+                onchange="applyFilter()" data-scale="%">
+            <p id="sepValue">0</p> <br>
         </div>
+
     </div>
-    <script>
-        window.onload = function () {
-            const image_input = document.querySelector("#image_input");
-            var uploaded_img = "";
 
-            image_input.addEventListener("change", () => {
-                const reader = new FileReader();
-                reader.addEventListener("load", () => {
-                    uploaded_img = reader.result;
-                    document.querySelector(".display_image").style.backgroundImage = `url(${uploaded_img})`;
-                })
-                reader.readAsDataURL(image_input.files[0]);
-
-            });
-
-
-        }
-        const image = document.querySelector(".display_image");
-        var filterControls = document.querySelectorAll('input[type=range]');
-        
-        function applyFilter() {
-            var computedValue = "";
-            filterControls.forEach(function (item) {
-                computedValue += item.getAttribute('data-filter') + "(" + item.value + item.getAttribute('data-scale') + ") ";
-            });
-            image.style.filter = computedValue;
-            console.log("Bas Kar Bhau");
-        }
-
-
-
-    </script>
-    <script language=JavaScript>
-
-        <!-- http://www.spacegun.co.uk -->
-        
-        var message = "Not Available";
-        
-        function rtclickcheck(keyp){ if (navigator.appName == "Netscape" && keyp.which == 3){ alert(message); return false; }
-        
-        if (navigator.appVersion.indexOf("MSIE") != -1 && event.button == 2) { alert(message); return false; } }
-        
-        document.onmousedown = rtclickcheck;
-        
-        </script>
+    <script src="script1.js"></script>
 
 
 </body>

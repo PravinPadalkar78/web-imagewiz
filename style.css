@@ -29,9 +29,7 @@ h3 {
 }
 
 .display_image {
-    width: 100%;
-    height: 75%;
-    background: url("./test2.avif");
+    width: 90%;
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -55,7 +53,9 @@ input::file-selector-button {
     margin-right: 10px;
     border: thin solid grey;
     border-radius: 3px;
+    cursor: pointer;
 }
+
 
 .pic h3 {
     text-align: center;
@@ -65,6 +65,7 @@ input::file-selector-button {
 .pic input {
     margin: 10px 0px;
     text-align: center;
+    cursor: pointer;
 }
 
 .controls {
@@ -72,7 +73,8 @@ input::file-selector-button {
 }
 
 .controls input {
-    width: 100%;
+    width: 85%;
+    cursor: pointer;
 }
 
 .controls h3 {
@@ -82,6 +84,11 @@ input::file-selector-button {
 
 .controls input {
     margin: 5px 0px;
+}
+.controls p{
+    display: inline-block;
+    margin-left: 5px;
+    margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 1150px) and (min-width: 600px) {
