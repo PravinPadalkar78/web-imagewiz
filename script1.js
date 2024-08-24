@@ -49,9 +49,12 @@ function downloadBtn() {
     let img = document.querySelector(".display_image");
     let canvas = document.getElementById("myCanva");
     let ctx = canvas.getContext("2d");
-    ctx.filter = computedValue;
+    
+
     canvas.width = img.width;
     canvas.height = img.height;
+
+    ctx.filter = computedValue;
     // Draw the image onto the canvas with the applied filters
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
@@ -62,7 +65,7 @@ function downloadBtn() {
     link.download = 'filtered-image.png';
 
     // Convert canvas to Data URL and set as href attribute
-    link.href = canvas.toDataURL('image/avif');
+    link.href = canvas.toDataURL('image/*');
 
     // Trigger the download
     link.click();
